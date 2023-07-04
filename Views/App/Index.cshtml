@@ -1,0 +1,48 @@
+@model IEnumerable<BookViewModel>
+    @{
+    ViewBag.Title = "Home Page";
+    }
+
+    <div>
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Books</h2>
+            <a asp-controller="App" asp-action="AddOrEdit" class="btn btn-primary">Add book</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+@*                     <th>Author</th>
+                    <th>Publisher</th> *@
+                    <th>ISBN</th>
+                    <th>Year</th>
+                    <th>Cover</th>
+                </tr>
+            </thead>
+            @foreach(var item in Model) {
+              <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+@*                 <td>@item.Author</td>
+                <td>@item.Title</td> *@
+                <td>@item.ISBN</td>
+                <td>@item.Year</td>
+                <td>@item.Cover</td>
+              </tr>
+            }
+        </table>
+    </div>
+
+
+    <ul>
+        <li>
+            <a asp-controller="App" asp-action="Edit">Learning React</a>
+        </li>
+        <li>
+            <a asp-controller="App" asp-action="Edit">Learning Node</a>
+        </li>
+        <li>
+            <a asp-controller="App" asp-action="Edit">Docker Up and Running</a>
+        </li>
+    </ul>
